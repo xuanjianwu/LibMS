@@ -4,7 +4,7 @@ package info.liyc.vo;
  * Created by liyc on 17-4-25.
  */
 public class Book {
-    private int bookId;
+    private int id;
     private String title;
     private String author;
     private int publisherId;
@@ -13,14 +13,14 @@ public class Book {
     private double unitPrice;
     private String bookDescription;
     private String authorDescription;
-    private String categoryId;
+    private int categoryId;
 
-    public int getBookId() {
-        return bookId;
+    public int getId() {
+        return id;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -87,11 +87,11 @@ public class Book {
         this.authorDescription = authorDescription;
     }
 
-    public String getCategoryId() {
+    public int getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(String categoryId) {
+    public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
 }
