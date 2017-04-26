@@ -23,6 +23,4 @@ public interface BookDao {
     int getMaxId() throws Exception;
     boolean deleteBookById(int id) throws Exception;
     boolean updateBook(Book book) throws Exception;
-    int getCategoryId(String category) throws Exception;
-    int getPublisherId(String publisher) throws Exception;
 }

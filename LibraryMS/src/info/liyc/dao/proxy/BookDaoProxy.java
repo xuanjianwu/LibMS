@@ -142,24 +142,4 @@ public class BookDaoProxy implements BookDao {
         }
         return false;
     }
-
-    @Override
-    public int getCategoryId(String category) throws Exception {
-        try {
-            return this.dao.getCategoryId(category);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return 28;
-    }
-
-    @Override
-    public int getPublisherId(String publisher) throws Exception {
-        try {
-            return this.dao.getPublisherId(publisher);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return 4;
-    }
 }

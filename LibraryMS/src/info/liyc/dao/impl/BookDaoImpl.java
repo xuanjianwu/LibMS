@@ -203,36 +203,4 @@ public class BookDaoImpl implements BookDao{
         }
         return false;
     }
-
-    @Override
-    public int getCategoryId(String category) throws Exception {
-        int categoryId = 28;
-        try {
-            String sql = "SELECT * FROM categories WHERE name=?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, category);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next())
-                categoryId = rs.getInt(1);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return categoryId;
-    }
-
-    @Override
-    public int getPublisherId(String publisher) throws Exception {
-        int id = 4;
-        try {
-            String sql = "SELECT * FROM publishers WHERE name=?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, publisher);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next())
-                id = rs.getInt(1);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return id;
-    }
 }
