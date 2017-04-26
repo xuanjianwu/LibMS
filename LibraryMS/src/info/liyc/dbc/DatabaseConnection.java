@@ -15,7 +15,7 @@ public class DatabaseConnection {
 
     private Connection conn = null;
 
-    public DatabaseConnection() {
+    public DatabaseConnection() throws Exception {
         try {
             Class.forName(DBDRIVER);
             this.conn = DriverManager.getConnection(DBURL, DBUSER, DBPWD);
@@ -30,7 +30,7 @@ public class DatabaseConnection {
         return conn;
     }
 
-    public void close() {
+    public void close() throws Exception {
         if (this.conn != null) {
             try {
                 this.conn.close();
