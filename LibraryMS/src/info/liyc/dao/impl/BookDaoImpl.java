@@ -20,8 +20,8 @@ public class BookDaoImpl implements BookDao{
     public ResultSet getBooksByAll() throws Exception {
         try {
             String sql = "SELECT * FROM books";
-            pstmt = conn.prepareStatement(sql);
-            ResultSet rs = pstmt.executeQuery();
+            this.pstmt = this.conn.prepareStatement(sql);
+            ResultSet rs = this.pstmt.executeQuery();
             return rs;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -33,8 +33,8 @@ public class BookDaoImpl implements BookDao{
     public ResultSet getBooksByTitle(String title) throws Exception {
         try {
             String sql = "SELECT * FROM books WHERE title LIKE '%" + title + "%'";
-            pstmt = conn.prepareStatement(sql);
-            ResultSet rs = pstmt.executeQuery();
+            this.pstmt = this.conn.prepareStatement(sql);
+            ResultSet rs = this.pstmt.executeQuery();
             return rs;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -46,8 +46,8 @@ public class BookDaoImpl implements BookDao{
     public ResultSet getBookByAuthor(String author) throws Exception {
         try {
             String sql = "SELECT * FROM books WHERE author LIKE '%" + author + "%'";
-            pstmt = conn.prepareStatement(sql);
-            ResultSet rs = pstmt.executeQuery();
+            this.pstmt = this.conn.prepareStatement(sql);
+            ResultSet rs = this.pstmt.executeQuery();
             return rs;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -59,9 +59,9 @@ public class BookDaoImpl implements BookDao{
     public ResultSet getBooksByPublisherId(int publisherId) throws Exception {
         try {
             String sql = "SELECT * FROM books WHERE publisherId=?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, publisherId);
-            ResultSet rs = pstmt.executeQuery();
+            this.pstmt = this.conn.prepareStatement(sql);
+            this.pstmt.setInt(1, publisherId);
+            ResultSet rs = this.pstmt.executeQuery();
             return rs;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -73,8 +73,8 @@ public class BookDaoImpl implements BookDao{
     public ResultSet getBooksByPublishDate(String publishDate) throws Exception {
         try {
             String sql = "SELECT * FROM books WHERE publishDate LIKE '%" + publishDate + "%'";
-            pstmt = conn.prepareStatement(sql);
-            ResultSet rs = pstmt.executeQuery();
+            this.pstmt = this.conn.prepareStatement(sql);
+            ResultSet rs = this.pstmt.executeQuery();
             return rs;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -86,9 +86,9 @@ public class BookDaoImpl implements BookDao{
     public ResultSet getBooksByIsbn(String isbn) throws Exception {
         try {
             String sql = "SELECT * FROM books WHERE isbn=?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, isbn);
-            ResultSet rs = pstmt.executeQuery();
+            this.pstmt = this.conn.prepareStatement(sql);
+            this.pstmt.setString(1, isbn);
+            ResultSet rs = this.pstmt.executeQuery();
             return rs;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -100,9 +100,9 @@ public class BookDaoImpl implements BookDao{
     public ResultSet getBooksByUnitPrice(double unitPrice) throws Exception {
         try {
             String sql = "SELECT * FROM books WHERE unitPrice=?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setDouble(1, unitPrice);
-            ResultSet rs = pstmt.executeQuery();
+            this.pstmt = this.conn.prepareStatement(sql);
+            this.pstmt.setDouble(1, unitPrice);
+            ResultSet rs = this.pstmt.executeQuery();
             return rs;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -114,9 +114,9 @@ public class BookDaoImpl implements BookDao{
     public ResultSet getBooksByCategoryId(int categortId) throws Exception {
         try {
             String sql = "SELECT * FROM books WHERE categortId=?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, categortId);
-            ResultSet rs = pstmt.executeQuery();
+            this.pstmt = this.conn.prepareStatement(sql);
+            this.pstmt.setInt(1, categortId);
+            ResultSet rs = this.pstmt.executeQuery();
             return rs;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -128,18 +128,18 @@ public class BookDaoImpl implements BookDao{
     public boolean addBook(Book book) throws Exception {
         try {
             String sql = "INSERT INTO books values (?,?,?,?,?,?,?,?,?,?)";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, book.getId());
-            pstmt.setString(2, book.getTitle());
-            pstmt.setString(3, book.getAuthor());
-            pstmt.setInt(4, book.getPublisherId());
-            pstmt.setString(5, book.getPublishDate());
-            pstmt.setString(6, book.getIsbn());
-            pstmt.setDouble(7, book.getUnitPrice());
-            pstmt.setString(8, book.getBookDescription());
-            pstmt.setString(9, book.getAuthorDescription());
-            pstmt.setInt(10, book.getCategoryId());
-            int index = pstmt.executeUpdate();
+            this.pstmt = this.conn.prepareStatement(sql);
+            this.pstmt.setInt(1, book.getId());
+            this.pstmt.setString(2, book.getTitle());
+            this.pstmt.setString(3, book.getAuthor());
+            this.pstmt.setInt(4, book.getPublisherId());
+            this.pstmt.setString(5, book.getPublishDate());
+            this.pstmt.setString(6, book.getIsbn());
+            this.pstmt.setDouble(7, book.getUnitPrice());
+            this.pstmt.setString(8, book.getBookDescription());
+            this.pstmt.setString(9, book.getAuthorDescription());
+            this.pstmt.setInt(10, book.getCategoryId());
+            int index = this.pstmt.executeUpdate();
             if (index > 0)
                 return true;
         } catch (SQLException e) {
@@ -153,8 +153,8 @@ public class BookDaoImpl implements BookDao{
         int id = 1;
         try {
             String sql = "SELECT * FROM books";
-            pstmt = conn.prepareStatement(sql);
-            ResultSet rs = pstmt.executeQuery();
+            this.pstmt = this.conn.prepareStatement(sql);
+            ResultSet rs = this.pstmt.executeQuery();
             if (rs.last())
                 id = rs.getInt(1);
         } catch (SQLException e) {
@@ -167,9 +167,9 @@ public class BookDaoImpl implements BookDao{
     public boolean deleteBookById(int id) throws Exception {
         try {
             String sql = "DELETE FROM books WHERE id=?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, id);
-            int index = pstmt.executeUpdate();
+            this.pstmt = this.conn.prepareStatement(sql);
+            this.pstmt.setInt(1, id);
+            int index = this.pstmt.executeUpdate();
             if (index > 0)
                 return true;
         } catch (SQLException e) {
@@ -184,18 +184,18 @@ public class BookDaoImpl implements BookDao{
             String sql = "UPDATE books set title=?, author=? publisherId=?, " +
                     "publishDate=?, isbn=?, unitPrice=?, bookDescription=?, " +
                     "authorDescription=?, categoryId=? WHERE id=?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, book.getTitle());
-            pstmt.setString(2, book.getAuthor());
-            pstmt.setInt(3, book.getPublisherId());
-            pstmt.setString(4, book.getPublishDate());
-            pstmt.setString(5, book.getIsbn());
-            pstmt.setDouble(6, book.getUnitPrice());
-            pstmt.setString(7, book.getBookDescription());
-            pstmt.setString(8, book.getAuthorDescription());
-            pstmt.setInt(9, book.getCategoryId());
-            pstmt.setInt(10, book.getId());
-            int index = pstmt.executeUpdate();
+            this.pstmt = this.conn.prepareStatement(sql);
+            this.pstmt.setString(1, book.getTitle());
+            this.pstmt.setString(2, book.getAuthor());
+            this.pstmt.setInt(3, book.getPublisherId());
+            this.pstmt.setString(4, book.getPublishDate());
+            this.pstmt.setString(5, book.getIsbn());
+            this.pstmt.setDouble(6, book.getUnitPrice());
+            this.pstmt.setString(7, book.getBookDescription());
+            this.pstmt.setString(8, book.getAuthorDescription());
+            this.pstmt.setInt(9, book.getCategoryId());
+            this.pstmt.setInt(10, book.getId());
+            int index = this.pstmt.executeUpdate();
             if (index > 0)
                 return true;
         } catch (SQLException e) {

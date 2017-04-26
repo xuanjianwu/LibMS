@@ -4,6 +4,8 @@ import info.liyc.dao.PublisherDao;
 import info.liyc.dao.impl.PublisherDaoImpl;
 import info.liyc.dbc.DatabaseConnection;
 
+import java.sql.ResultSet;
+
 /**
  * Created by liyc on 17-4-26.
  */
@@ -28,6 +30,16 @@ public class PublisherDaoProxy implements PublisherDao{
             e.printStackTrace();
         }
         return 4;
+    }
+
+    @Override
+    public ResultSet getPublisherByAll() throws Exception {
+        try {
+            return this.dao.getPublisherByAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
 

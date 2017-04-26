@@ -23,14 +23,27 @@ public class CategoryDaoImpl implements CategoryDao {
         int categoryId = 28;
         try {
             String sql = "SELECT * FROM categories WHERE name=?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, category);
-            ResultSet rs = pstmt.executeQuery();
+            this.pstmt = this.conn.prepareStatement(sql);
+            this.pstmt.setString(1, category);
+            ResultSet rs = this.pstmt.executeQuery();
             if (rs.next())
                 categoryId = rs.getInt(1);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return categoryId;
+    }
+
+    @Override
+    public ResultSet getCategoryByAll() throws Exception {
+        try {
+            String sql = "SELECT * FROM categories";
+            pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

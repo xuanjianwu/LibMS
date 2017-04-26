@@ -4,6 +4,8 @@ import info.liyc.dao.CategoryDao;
 import info.liyc.dao.impl.CategoryDaoImpl;
 import info.liyc.dbc.DatabaseConnection;
 
+import java.sql.ResultSet;
+
 /**
  * Created by liyc on 17-4-26.
  */
@@ -28,5 +30,15 @@ public class CategoryDaoProxy implements CategoryDao {
             e.printStackTrace();
         }
         return 28;
+    }
+
+    @Override
+    public ResultSet getCategoryByAll() throws Exception {
+        try {
+            return this.dao.getCategoryByAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

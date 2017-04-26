@@ -20,17 +20,30 @@ public class PublisherDaoImpl implements PublisherDao {
 
     @Override
     public int getPublisherId(String publisher) throws Exception {
-        int id = 4;
+        int publisherId = 4;
         try {
             String sql = "SELECT * FROM publishers WHERE name=?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, publisher);
-            ResultSet rs = pstmt.executeQuery();
+            this.pstmt = this.conn.prepareStatement(sql);
+            this.pstmt.setString(1, publisher);
+            ResultSet rs = this.pstmt.executeQuery();
             if (rs.next())
-                id = rs.getInt(1);
+                publisherId = rs.getInt(1);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return id;
+        return publisherId;
+    }
+
+    @Override
+    public ResultSet getPublisherByAll() throws Exception {
+        try {
+            String sql = "SELECT * FROM publishers";
+            pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
