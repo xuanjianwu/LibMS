@@ -20,7 +20,7 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     @Override
-    public boolean doLogin(Account account) throws Exception {
+    public boolean doLogin(Account account) {
         boolean flag = false;
         try {
             String sql = "SELECT * FROM accounts WHERE loginId=? AND loginPwd=?";

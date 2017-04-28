@@ -19,7 +19,7 @@ public class PublisherDaoImpl implements PublisherDao {
     }
 
     @Override
-    public int getPublisherId(String publisher) throws Exception {
+    public int getPublisherId(String publisher) {
         int publisherId = 4;
         try {
             String sql = "SELECT * FROM publishers WHERE name=?";
@@ -35,7 +35,7 @@ public class PublisherDaoImpl implements PublisherDao {
     }
 
     @Override
-    public ResultSet getPublisherByAll() throws Exception {
+    public ResultSet getPublisherByAll() {
         try {
             String sql = "SELECT * FROM publishers";
             pstmt = conn.prepareStatement(sql);

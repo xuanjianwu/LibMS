@@ -19,7 +19,7 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
-    public int getCategoryId(String category) throws Exception {
+    public int getCategoryId(String category) {
         int categoryId = 28;
         try {
             String sql = "SELECT * FROM categories WHERE name=?";
@@ -35,7 +35,7 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
-    public ResultSet getCategoryByAll() throws Exception {
+    public ResultSet getCategoryByAll() {
         try {
             String sql = "SELECT * FROM categories";
             pstmt = conn.prepareStatement(sql);

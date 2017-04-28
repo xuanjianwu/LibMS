@@ -23,7 +23,7 @@ public class PublisherDaoProxy implements PublisherDao{
     }
 
     @Override
-    public int getPublisherId(String publisher) throws Exception {
+    public int getPublisherId(String publisher) {
         try {
             return this.dao.getPublisherId(publisher);
         } catch (Exception e) {
@@ -33,7 +33,7 @@ public class PublisherDaoProxy implements PublisherDao{
     }
 
     @Override
-    public ResultSet getPublisherByAll() throws Exception {
+    public ResultSet getPublisherByAll() {
         try {
             return this.dao.getPublisherByAll();
         } catch (Exception e) {

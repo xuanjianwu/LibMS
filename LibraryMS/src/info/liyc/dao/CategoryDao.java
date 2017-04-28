@@ -6,6 +6,6 @@ import java.sql.ResultSet;
  * Created by liyc on 17-4-26.
  */
 public interface CategoryDao {
-    int getCategoryId(String category) throws Exception;
-    ResultSet getCategoryByAll() throws Exception;
+    int getCategoryId(String category);
+    ResultSet getCategoryByAll();
 }

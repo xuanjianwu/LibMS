@@ -24,7 +24,7 @@ public class BookDaoProxy implements BookDao {
     }
 
     @Override
-    public ResultSet getBooksByAll() throws Exception {
+    public ResultSet getBooksByAll() {
         try {
             return this.dao.getBooksByAll();
         } catch (Exception e) {
@@ -34,7 +34,7 @@ public class BookDaoProxy implements BookDao {
     }
 
     @Override
-    public ResultSet getBooksByTitle(String title) throws Exception {
+    public ResultSet getBooksByTitle(String title) {
         try {
             return this.dao.getBooksByTitle(title);
         } catch (Exception e) {
@@ -44,7 +44,7 @@ public class BookDaoProxy implements BookDao {
     }
 
     @Override
-    public ResultSet getBookByAuthor(String author) throws Exception {
+    public ResultSet getBookByAuthor(String author) {
         try {
             return this.dao.getBookByAuthor(author);
         } catch (Exception e) {
@@ -54,7 +54,7 @@ public class BookDaoProxy implements BookDao {
     }
 
     @Override
-    public ResultSet getBooksByPublisherId(int publisherId) throws Exception {
+    public ResultSet getBooksByPublisherId(int publisherId) {
         try {
             return this.dao.getBooksByPublisherId(publisherId);
         } catch (Exception e) {
@@ -64,7 +64,7 @@ public class BookDaoProxy implements BookDao {
     }
 
     @Override
-    public ResultSet getBooksByPublishDate(String publishDate) throws Exception {
+    public ResultSet getBooksByPublishDate(String publishDate) {
         try {
             return this.dao.getBooksByPublishDate(publishDate);
         } catch (Exception e) {
@@ -74,7 +74,7 @@ public class BookDaoProxy implements BookDao {
     }
 
     @Override
-    public ResultSet getBooksByIsbn(String isbn) throws Exception {
+    public ResultSet getBooksByIsbn(String isbn) {
         try {
             return this.dao.getBooksByIsbn(isbn);
         } catch (Exception e) {
@@ -84,7 +84,7 @@ public class BookDaoProxy implements BookDao {
     }
 
     @Override
-    public ResultSet getBooksByUnitPrice(double unitPrice) throws Exception {
+    public ResultSet getBooksByUnitPrice(double unitPrice) {
         try {
             return this.dao.getBooksByUnitPrice(unitPrice);
         } catch (Exception e) {
@@ -94,7 +94,7 @@ public class BookDaoProxy implements BookDao {
     }
 
     @Override
-    public ResultSet getBooksByCategoryId(int categortId) throws Exception {
+    public ResultSet getBooksByCategoryId(int categortId) {
         try {
             return this.dao.getBooksByCategoryId(categortId);
         } catch (Exception e) {
@@ -104,7 +104,7 @@ public class BookDaoProxy implements BookDao {
     }
 
     @Override
-    public boolean addBook(Book book) throws Exception {
+    public boolean addBook(Book book) {
         try {
             return this.dao.addBook(book);
         } catch (Exception e) {
@@ -114,7 +114,7 @@ public class BookDaoProxy implements BookDao {
     }
 
     @Override
-    public int getMaxId() throws Exception {
+    public int getMaxId() {
         try {
             return this.dao.getMaxId();
         } catch (Exception e) {
@@ -124,7 +124,7 @@ public class BookDaoProxy implements BookDao {
     }
 
     @Override
-    public boolean deleteBookById(int id) throws Exception {
+    public boolean deleteBookById(int id) {
         try {
             return this.dao.deleteBookById(id);
         } catch (Exception e) {
@@ -134,7 +134,7 @@ public class BookDaoProxy implements BookDao {
     }
 
     @Override
-    public boolean updateBook(Book book) throws Exception {
+    public boolean updateBook(Book book) {
         try {
             return this.dao.updateBook(book);
         } catch (Exception e) {

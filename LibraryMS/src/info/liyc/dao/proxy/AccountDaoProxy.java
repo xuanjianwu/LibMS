@@ -24,7 +24,7 @@ public class AccountDaoProxy implements AccountDao {
     }
 
     @Override
-    public boolean doLogin(Account account) throws Exception {
+    public boolean doLogin(Account account) {
         boolean flag = false;
         try {
             flag = this.dao.doLogin(account);

@@ -17,7 +17,7 @@ public class BookDaoImpl implements BookDao{
     }
 
     @Override
-    public ResultSet getBooksByAll() throws Exception {
+    public ResultSet getBooksByAll() {
         try {
             String sql = "SELECT * FROM books";
             this.pstmt = this.conn.prepareStatement(sql);
@@ -30,7 +30,7 @@ public class BookDaoImpl implements BookDao{
     }
 
     @Override
-    public ResultSet getBooksByTitle(String title) throws Exception {
+    public ResultSet getBooksByTitle(String title) {
         try {
             String sql = "SELECT * FROM books WHERE title LIKE '%" + title + "%'";
             this.pstmt = this.conn.prepareStatement(sql);
@@ -43,7 +43,7 @@ public class BookDaoImpl implements BookDao{
     }
 
     @Override
-    public ResultSet getBookByAuthor(String author) throws Exception {
+    public ResultSet getBookByAuthor(String author) {
         try {
             String sql = "SELECT * FROM books WHERE author LIKE '%" + author + "%'";
             this.pstmt = this.conn.prepareStatement(sql);
@@ -56,7 +56,7 @@ public class BookDaoImpl implements BookDao{
     }
 
     @Override
-    public ResultSet getBooksByPublisherId(int publisherId) throws Exception {
+    public ResultSet getBooksByPublisherId(int publisherId) {
         try {
             String sql = "SELECT * FROM books WHERE publisherId=?";
             this.pstmt = this.conn.prepareStatement(sql);
@@ -70,7 +70,7 @@ public class BookDaoImpl implements BookDao{
     }
 
     @Override
-    public ResultSet getBooksByPublishDate(String publishDate) throws Exception {
+    public ResultSet getBooksByPublishDate(String publishDate) {
         try {
             String sql = "SELECT * FROM books WHERE publishDate LIKE '%" + publishDate + "%'";
             this.pstmt = this.conn.prepareStatement(sql);
@@ -83,7 +83,7 @@ public class BookDaoImpl implements BookDao{
     }
 
     @Override
-    public ResultSet getBooksByIsbn(String isbn) throws Exception {
+    public ResultSet getBooksByIsbn(String isbn) {
         try {
             String sql = "SELECT * FROM books WHERE isbn=?";
             this.pstmt = this.conn.prepareStatement(sql);
@@ -97,7 +97,7 @@ public class BookDaoImpl implements BookDao{
     }
 
     @Override
-    public ResultSet getBooksByUnitPrice(double unitPrice) throws Exception {
+    public ResultSet getBooksByUnitPrice(double unitPrice) {
         try {
             String sql = "SELECT * FROM books WHERE unitPrice=?";
             this.pstmt = this.conn.prepareStatement(sql);
@@ -111,7 +111,7 @@ public class BookDaoImpl implements BookDao{
     }
 
     @Override
-    public ResultSet getBooksByCategoryId(int categortId) throws Exception {
+    public ResultSet getBooksByCategoryId(int categortId) {
         try {
             String sql = "SELECT * FROM books WHERE categortId=?";
             this.pstmt = this.conn.prepareStatement(sql);
@@ -125,7 +125,7 @@ public class BookDaoImpl implements BookDao{
     }
 
     @Override
-    public boolean addBook(Book book) throws Exception {
+    public boolean addBook(Book book) {
         try {
             String sql = "INSERT INTO books values (?,?,?,?,?,?,?,?,?,?)";
             this.pstmt = this.conn.prepareStatement(sql);
@@ -149,7 +149,7 @@ public class BookDaoImpl implements BookDao{
     }
 
     @Override
-    public int getMaxId() throws Exception {
+    public int getMaxId() {
         int id = 1;
         try {
             String sql = "SELECT * FROM books";
@@ -164,7 +164,7 @@ public class BookDaoImpl implements BookDao{
     }
 
     @Override
-    public boolean deleteBookById(int id) throws Exception {
+    public boolean deleteBookById(int id) {
         try {
             String sql = "DELETE FROM books WHERE id=?";
             this.pstmt = this.conn.prepareStatement(sql);
@@ -179,7 +179,7 @@ public class BookDaoImpl implements BookDao{
     }
 
     @Override
-    public boolean updateBook(Book book) throws Exception {
+    public boolean updateBook(Book book) {
         try {
             String sql = "UPDATE books set title=?, author=? publisherId=?, " +
                     "publishDate=?, isbn=?, unitPrice=?, bookDescription=?, " +

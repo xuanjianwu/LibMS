@@ -23,7 +23,7 @@ public class CategoryDaoProxy implements CategoryDao {
     }
 
     @Override
-    public int getCategoryId(String category) throws Exception {
+    public int getCategoryId(String category) {
         try {
             return this.dao.getCategoryId(category);
         } catch (Exception e) {
@@ -33,7 +33,7 @@ public class CategoryDaoProxy implements CategoryDao {
     }
 
     @Override
-    public ResultSet getCategoryByAll() throws Exception {
+    public ResultSet getCategoryByAll() {
         try {
             return this.dao.getCategoryByAll();
         } catch (Exception e) {

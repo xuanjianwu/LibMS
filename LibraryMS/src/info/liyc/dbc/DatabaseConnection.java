@@ -9,13 +9,13 @@ import java.sql.SQLException;
  */
 public class DatabaseConnection {
     private static final String DBDRIVER = "com.mysql.jdbc.Driver";
-    private static final String DBURL = "jdbc:mysql://localhost:3306/library";
+    private static final String DBURL = "jdbc:mysql://127.0.0.1:3306/library";
     private static final String DBUSER = "root";
-    private static final String DBPWD = "admin";
+    private static final String DBPWD = "root";
 
     private Connection conn = null;
 
-    public DatabaseConnection() throws Exception {
+    public DatabaseConnection() {
         try {
             Class.forName(DBDRIVER);
             this.conn = DriverManager.getConnection(DBURL, DBUSER, DBPWD);
@@ -30,7 +30,7 @@ public class DatabaseConnection {
         return conn;
     }
 
-    public void close() throws Exception {
+    public void close() {
         if (this.conn != null) {
             try {
                 this.conn.close();
