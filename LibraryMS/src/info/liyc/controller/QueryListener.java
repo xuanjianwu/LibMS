@@ -1,6 +1,7 @@
 package info.liyc.controller;
 
 import info.liyc.factory.DaoFactory;
+import info.liyc.view.AddFrame;
 import info.liyc.view.MainFrame;
 import info.liyc.view.QueryPanel;
 
@@ -66,7 +67,7 @@ public class QueryListener implements ActionListener {
             ((DefaultTableModel)qp.jTable.getModel()).getDataVector().clear();
             ((DefaultTableModel)qp.jTable.getModel()).fireTableDataChanged();
         } else if (btnTemp == qp.btnAdd) {
-
+            AddFrame af = new AddFrame();
         } else if (btnTemp == qp.btnEdit) {
 
         } else if (btnTemp == qp.btnDelete) {

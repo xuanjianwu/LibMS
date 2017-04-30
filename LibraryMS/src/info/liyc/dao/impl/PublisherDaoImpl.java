@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 
 /**
  * Created by liyc on 17-4-26.
@@ -22,7 +23,7 @@ public class PublisherDaoImpl implements PublisherDao {
     public int getPublisherId(String publisher) {
         int publisherId = 4;
         try {
-            String sql = "SELECT * FROM publishers WHERE name=?";
+            String sql = "SELECT * FROM publishers WHERE publisher=?";
             this.pstmt = this.conn.prepareStatement(sql);
             this.pstmt.setString(1, publisher);
             ResultSet rs = this.pstmt.executeQuery();
@@ -45,5 +46,20 @@ public class PublisherDaoImpl implements PublisherDao {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public Vector<String> getPublisherByAllToString() {
+        Vector<String> rsv = new Vector<String>();
+        try {
+            String sql = "SELECT * FROM publishers";
+            pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next())
+                rsv.add(rs.getString(2));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rsv;
     }
 }

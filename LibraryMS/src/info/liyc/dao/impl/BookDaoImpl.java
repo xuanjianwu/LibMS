@@ -150,7 +150,7 @@ public class BookDaoImpl implements BookDao{
 
     @Override
     public int getMaxId() {
-        int id = 1;
+        int id = 0;
         try {
             String sql = "SELECT * FROM books";
             this.pstmt = this.conn.prepareStatement(sql);

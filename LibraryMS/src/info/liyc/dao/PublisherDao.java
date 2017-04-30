@@ -1,6 +1,7 @@
 package info.liyc.dao;
 
 import java.sql.ResultSet;
+import java.util.Vector;
 
 
 /**
@@ -9,4 +10,5 @@ import java.sql.ResultSet;
 public interface PublisherDao {
     int getPublisherId(String publisher);
     ResultSet getPublisherByAll();
+    Vector<String> getPublisherByAllToString();
 }
