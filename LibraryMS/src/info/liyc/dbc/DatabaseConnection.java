@@ -9,7 +9,7 @@ import java.sql.SQLException;
  */
 public class DatabaseConnection {
     private static final String DBDRIVER = "com.mysql.jdbc.Driver";
-    private static final String DBURL = "jdbc:mysql://127.0.0.1:3306/library";
+    private static final String DBURL = "jdbc:mysql://localhost:3306/library";
     private static final String DBUSER = "root";
     private static final String DBPWD = "root";
 

@@ -3,6 +3,7 @@ package info.liyc.controller;
 import info.liyc.factory.DaoFactory;
 import info.liyc.view.LoginFrame;
 import info.liyc.view.LoginPanel;
+import info.liyc.view.MainFrame;
 import info.liyc.vo.Account;
 
 import javax.swing.*;
@@ -32,6 +33,7 @@ public class LoginListener implements ActionListener {
             ac.setLoginPwd(pass);
             if (DaoFactory.getAccountDaoInstance().doLogin(ac)) {
                 //System.out.println("Successful Login");
+                MainFrame mf = new MainFrame();
                 lf.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "登录失败");

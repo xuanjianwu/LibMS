@@ -30,6 +30,7 @@ public class AccountDaoImpl implements AccountDao {
             ResultSet rs = this.pstmt.executeQuery();
             if (rs.next()) {
                 flag = true;
+                //System.out.println(rs.getString(4));
             }
         } catch (SQLException e) {
             e.printStackTrace();
