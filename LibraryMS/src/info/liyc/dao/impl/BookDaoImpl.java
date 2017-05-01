@@ -181,7 +181,7 @@ public class BookDaoImpl implements BookDao{
     @Override
     public boolean updateBook(Book book) {
         try {
-            String sql = "UPDATE books set title=?, author=? publisherId=?, " +
+            String sql = "UPDATE books set title=?, author=?, publisherId=?, " +
                     "publishDate=?, isbn=?, unitPrice=?, bookDescription=?, " +
                     "authorDescription=?, categoryId=? WHERE id=?";
             this.pstmt = this.conn.prepareStatement(sql);

@@ -1,9 +1,9 @@
 package info.liyc.controller;
 
 import info.liyc.factory.DaoFactory;
+import info.liyc.view.AddFrame;
 import info.liyc.view.AddPanel;
 import info.liyc.vo.Book;
-import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,9 +13,11 @@ import java.awt.event.ActionListener;
  * Created by liyc on 17-4-30.
  */
 public class AddListener implements ActionListener {
+    AddFrame af;
     AddPanel ap;
 
-    public AddListener(AddPanel ap) {
+    public AddListener(AddFrame af, AddPanel ap) {
+        this.af = af;
         this.ap = ap;
     }
 
@@ -46,6 +48,8 @@ public class AddListener implements ActionListener {
             } else {
                 JOptionPane.showMessageDialog(null, "添加失败！");
             }
+        } else if (btnTemp == ap.btnCancel) {
+            af.dispose();
         }
     }
 }

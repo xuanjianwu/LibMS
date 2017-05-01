@@ -21,7 +21,7 @@ public class PublisherDaoImpl implements PublisherDao {
 
     @Override
     public int getPublisherId(String publisher) {
-        int publisherId = 4;
+        int publisherId = 6;
         try {
             String sql = "SELECT * FROM publishers WHERE publisher=?";
             this.pstmt = this.conn.prepareStatement(sql);

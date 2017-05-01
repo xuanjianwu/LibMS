@@ -21,7 +21,7 @@ public class CategoryDaoImpl implements CategoryDao {
 
     @Override
     public int getCategoryId(String category) {
-        int categoryId = 28;
+        int categoryId = 7;
         try {
             String sql = "SELECT * FROM categories WHERE category=?";
             this.pstmt = this.conn.prepareStatement(sql);

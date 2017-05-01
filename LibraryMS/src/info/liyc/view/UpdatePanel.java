@@ -1,26 +1,27 @@
 package info.liyc.view;
 
-import info.liyc.controller.AddListener;
+import info.liyc.controller.UpdateListener;
 import info.liyc.factory.DaoFactory;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Vector;
 
 /**
- * Created by liyc on 17-4-30.
+ * Created by Lyc on 2017/5/1.
  */
-public class AddPanel extends JPanel {
+public class UpdatePanel extends JPanel {
     public JLabel lbeTitle, lbeAuthor, lbePublisher, lbePublishDate,
-    lbeIsbn, lbeUnitPrice, lbeBookDescription, lbeAuthorDescription,
-    lbeCategory;
+            lbeIsbn, lbeUnitPrice, lbeBookDescription, lbeAuthorDescription,
+            lbeCategory;
 
     public JTextField txtTitle, txtAuthor, txtPublishDate, txtIsbn,
-    txtUnitPrice;
+            txtUnitPrice;
     public JTextArea txtBookDescription, txtAuthorDescription;
     public JComboBox jcbPublisher, jcbCategory;
-    public JButton btnAdd, btnCancel;
+    public JButton btnUpdate, btnCancel;
 
-    public AddPanel(AddFrame af) {
+    public UpdatePanel(UpdateFrame uf, Vector<String> updateV) {
         lbeTitle = new JLabel("图书标题：");
         lbeAuthor = new JLabel("作者：");
         lbePublisher = new JLabel("出版社：");
@@ -39,11 +40,23 @@ public class AddPanel extends JPanel {
         txtBookDescription = new JTextArea(3, 20);
         txtAuthorDescription = new JTextArea(3, 20);
 
+
+        txtTitle.setText(updateV.elementAt(1));
+        txtAuthor.setText(updateV.elementAt(2));
+        txtPublishDate.setText(updateV.elementAt(4));
+        txtIsbn.setText(updateV.elementAt(5));
+        txtUnitPrice.setText(updateV.elementAt(6));
+        txtBookDescription.setText(updateV.elementAt(7));
+        txtAuthorDescription.setText(updateV.elementAt(8));
+
         jcbPublisher = new JComboBox(DaoFactory.getPublisherDaoInstance().getPublisherByAllToString());
         jcbCategory = new JComboBox(DaoFactory.getCategoryDaoInstance().getCategoryByAllToString());
 
-        btnAdd = new JButton("添加图书");
-        btnCancel = new JButton("取消添加");
+        jcbPublisher.setSelectedIndex(Integer.valueOf(updateV.elementAt(3)) - 1);
+        jcbCategory.setSelectedIndex(Integer.valueOf(updateV.elementAt(9)) - 1);
+
+        btnUpdate = new JButton("确定编辑");
+        btnCancel = new JButton("取消编辑");
 
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -143,16 +156,16 @@ public class AddPanel extends JPanel {
 
         gbc.gridx = 3;
         gbc.gridy = 6;
-        gbl.setConstraints(btnAdd, gbc);
-        this.add(btnAdd);
+        gbl.setConstraints(btnUpdate, gbc);
+        this.add(btnUpdate);
 
         gbc.gridx = 4;
         gbc.gridy = 6;
         gbl.setConstraints(btnCancel, gbc);
         this.add(btnCancel);
 
-        AddListener al = new AddListener(af, this);
-        btnAdd.addActionListener(al);
-        btnCancel.addActionListener(al);
+        UpdateListener ul = new UpdateListener(uf, this, Integer.valueOf(updateV.elementAt(0)));
+        btnUpdate.addActionListener(ul);
+        btnCancel.addActionListener(ul);
     }
 }
