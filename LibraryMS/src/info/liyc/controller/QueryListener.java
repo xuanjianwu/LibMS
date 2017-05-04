@@ -56,7 +56,16 @@ public class QueryListener implements ActionListener {
                 Vector<String> columns = TableOperation.getColumnName(rsmd);
                 Vector<Vector<String>> data = TableOperation.getTableData(rs, rsmd);
 
-                qp.jTable = new JTable(data, columns);
+                //qp.jTable = new JTable(data, columns);
+                qp.jTable = new JTable();
+                DefaultTableModel dtm = new DefaultTableModel(data, columns) {
+                    @Override
+                    public boolean isCellEditable(int row, int column) {
+                        return false;
+                    }
+                };
+                qp.jTable.setModel(dtm);
+
                 qp.jTable.setPreferredScrollableViewportSize(new Dimension(670, 350));
                 qp.jTable.addMouseListener(new TableClickListener(this));
                 qp.tablePanel.jsp.setViewportView(qp.jTable);

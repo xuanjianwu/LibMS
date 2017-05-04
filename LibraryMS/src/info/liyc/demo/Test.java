@@ -8,7 +8,7 @@ import info.liyc.view.MainFrame;
  */
 public class Test {
     public static void main (String[] args) {
-        LoginFrame lf = new LoginFrame();
-        //new MainFrame();
+        //new LoginFrame();
+        new MainFrame();
     }
 }
